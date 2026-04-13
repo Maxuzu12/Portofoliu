@@ -8,11 +8,133 @@
 
 <style>
 
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes heroFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+
+#typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #2a5cff;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%,100% { border-color: transparent; }
+  50% { border-color: #2a5cff; }
+}
+
+#emoji svg {
+  animation: float 0.6s ease;
+}
+
+@keyframes float {
+  0% { transform: translateY(5px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+
+.hero {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 20px;
+
+  animation: heroFloat 6s ease-in-out infinite;
+}
+
+
+.dark-btn {
+  width: auto;
+  padding: 10px 18px;
+  border-radius: 20px;
+
+  background: linear-gradient(45deg, #2a5cff, #00c6ff);
+  color: white;
+  border: none;
+}
+
+form:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+section {
+  padding: 80px 20px;
+}
+
+
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+
+  background: linear-gradient(45deg, #2a5cff, #00c6ff);
+  border: none;
+  color: white;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+
+form {
+   max-width: 600px;
+   margin: 50px auto;
+   padding: 20px;
+   border-radius: 20px;
+   
+   background: rgba(255,255,255,0.05);
+   backdrop-filter: blur(10px);
+   
+   box-shadow: 0 0 20px rgba(0,0,0,0.2)
+   
+   }
+
 
 input, textarea {
-  width: 100%;
-  max-width: 100%;
-}
+   width: 100%;
+   padding: 14px;
+   border-radius: 12px;
+   border: 1px solid rgba(255,255,255,0.1);
+   
+   background: rgba(0,0,0,0.4);
+   color: white;
+   
+   }
 
 * {
   box-sizing: border-box;
@@ -202,12 +324,18 @@ body::before {
 /* BODY */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
   background: linear-gradient(120deg, #f0f4ff, #ffffff);
   cursor: none;
   opacity: 0;
   transition: 0.8s;
 }
+
+#typing {
+  font-family: 'Poppins', sans-serif;
+}
+
+
 
 body.show-page {
   opacity: 1;
@@ -236,16 +364,24 @@ body.dark {
 }
 
 /* NAV */
+
 nav {
   position: sticky;
   top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: center;
-  gap: 20px;
-  padding: 15px;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.7);
-  z-index: 1000;
+  gap: 30px;
+
+  padding: 15px 30px;
+
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(15px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  transition: 0.3s;
 }
 
 .dark nav {
@@ -286,11 +422,15 @@ nav a:hover::after {
   overflow: hidden;
 }
 
-.hero h1 {
-  font-size: 48px;
+  .hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+
+  background: linear-gradient(90deg, #2a5cff, #00c6ff);
+  -webkit-background-clip: text;
+
+  /* 🔥 SCHIMBĂ ASTA */
   color: white;
-  text-shadow: 0 0 10px rgba(42,92,255,0.7),
-               0 0 20px rgba(42,92,255,0.5);
 }
 
 .subtitle {
@@ -428,6 +568,14 @@ section {
 
 <body>
 
+
+
+<nav>
+  <a href="#acasa">Acasa</a>
+  <a href="#despre">Despre</a>
+  <a href="#proiecte">Proiecte</a>
+</nav>
+
 <form action="https://formspree.io/f/mnjlagde" method="POST">
 <div id="toast">Mesaj trimis cu succes! 🚀</div>
   <input type="text" name="name" placeholder="Numele tău" required>
@@ -441,16 +589,18 @@ section {
 <div id="progress"></div>
 
 
-<nav>
-  <a href="#acasa">Acasa</a>
-  <a href="#despre">Despre</a>
-  <a href="#proiecte">Proiecte</a>
-</nav>
 
-<button onclick="darkMode()">Dark Mode</button>
+
+<button class="dark-btn" onclick="darkMode()">Dark Mode</button>
 
 <section class="hero fade-in">
-  <h1 id="typing"></h1>
+  <canvas id="particles"></canvas>
+  
+ <h1>
+  <span id="typing"></span>
+  <span id="emoji"></span>
+</h1> 
+
   <p class="subtitle">Front-End Developer 🚀</p>
   <a href="#contact" class="btn">Lucrează cu mine</a>
 </section>
@@ -498,10 +648,21 @@ window.addEventListener("load", () => {
 /* CURSOR */
 const cursor = document.querySelector(".cursor");
 
+let mouse = {
+  x: null,
+  y: null
+};
+
 document.addEventListener("mousemove", e => {
-  cursor.style.left = e.clientX+"px";
-  cursor.style.top = e.clientY+"px";
+  // cursor
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+
+  // particles
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
 });
+
 
 /* HOVER EFFECT */
 document.querySelectorAll("a,button").forEach(el=>{
@@ -535,23 +696,50 @@ window.addEventListener("scroll",()=>{
   });
 });
 
-/* TYPING */
-const texte=["Bine ai venit 🚀","Construiesc proiecte 💻","Acesta e începutul 🔥"];
+/* TYPING */ 
+
+const texte = [
+  "Bine ai venit ",
+  "Construiesc proiecte ",
+  "Acesta e începutul "
+];
+  
 let i=0,j=0,del=false;
 
 function type(){
-  let el=document.getElementById("typing");
-  let txt=texte[i];
+  let el = document.getElementById("typing");
+  let emoji = document.getElementById("emoji");
+  let txt = texte[i];
 
   if(!del){
-    el.innerHTML=txt.substring(0,j++);
-    if(j==txt.length){del=true;setTimeout(type,1000);return;}
+    el.textContent = txt.substring(0, j);
+    j++;
+
+    emoji.textContent = j > 0 ? "🚀" : "";
+
+    if(j > txt.length){
+      del = true;
+      setTimeout(type, 1000);
+      return;
+    }
+
   } else {
-    el.innerHTML=txt.substring(0,j--);
-    if(j==0){del=false;i=(i+1)%texte.length;}
+    j--;
+    el.textContent = txt.substring(0, j);
+
+   emoji.innerHTML = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="#2a5cff" style="vertical-align: middle;">
+  <path d="M12 2C8 6 6 10 6 14c0 2 1 4 3 5l-1 3 3-1c1 2 3 3 5 3 4 0 8-2 12-6-4-4-8-6-12-6-2 0-4 1-5 3l-3-1 1 3c-1 1-2 3-2 5 0 4 4 8 10 12 6-4 10-8 10-12 0-2-1-4-2-5l1-3-3 1c-1-2-3-3-5-3z"/>
+</svg>
+`;
+
+    if(j <= 0){
+      del = false;
+      i = (i + 1) % texte.length;
+    }
   }
 
-  setTimeout(type,del?30:80);
+  setTimeout(type, del ? 30 : 80);
 }
 
 type();
@@ -577,6 +765,8 @@ window.addEventListener("scroll", () => {
     btn.style.display = "none";
   }
 });
+
+console.log("j:", j);
 
 const form = document.querySelector("form");
 const toast = document.getElementById("toast");
@@ -604,10 +794,87 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+const hero = document.querySelector(".hero");
+
+function resizeCanvas() {
+  canvas.width = hero.offsetWidth;
+  canvas.height = hero.offsetHeight;
+}
+
+resizeCanvas();
+
+window.addEventListener("resize", resizeCanvas);
+
+let particles = [];
+
+for(let i=0;i<50;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2,
+    dx: (Math.random()-0.5),
+    dy: (Math.random()-0.5)
+  });
+}
+
+function animateParticles(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  particles.forEach(p=>{
+  p.x += p.dx;
+  p.y += p.dy;
+
+  if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
+  if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+  // 🔥 FIX
+  if(mouse.x !== null && mouse.y !== null){
+    let dxMouse = p.x - mouse.x;
+    let dyMouse = p.y - mouse.y;
+    let distMouse = Math.sqrt(dxMouse*dxMouse + dyMouse*dyMouse);
+
+    if(distMouse < 120){
+      p.x -= dxMouse * 0.02;
+      p.y -= dyMouse * 0.02;
+    }
+  }
+
+  ctx.beginPath();
+  ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+  ctx.fillStyle="rgba(42,92,255,0.5)";
+  ctx.fill();
+});
+
+  
+
+  // 🔥 LINIi între particule
+  for(let i=0;i<particles.length;i++){
+    for(let j=i+1;j<particles.length;j++){
+      let dx = particles[i].x - particles[j].x;
+      let dy = particles[i].y - particles[j].y;
+      let dist = Math.sqrt(dx*dx + dy*dy);
+
+      if(dist < 100){
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = "rgba(42,92,255,0.15)";
+        ctx.stroke();
+      }
+    }
+  }
+
+  requestAnimationFrame(animateParticles);
+}
+animateParticles();
 
 
 
 </script>
+
 <button id="topBtn">↑</button>
 <div id="loader">
   <div class="spinner"></div>
