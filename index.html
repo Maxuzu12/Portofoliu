@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Front-End Developer din Romania. Creez site-uri moderne și rapide.">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 <title>Apopei Ionut | Front-End Developer</title>
@@ -9,6 +9,31 @@
 <style>
 
 
+input, textarea {
+  width: 100%;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+
+@media (max-width: 768px) {
+  .proiecte-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+button { 
+    width: 100%;
+	max-width: 100%;
+	}
 
 section {
   max-width: 100%;
@@ -19,9 +44,7 @@ img {
   display: block;
 }
 
-body {
-  overflow-x: hidden;
-}
+
 
 #toast {
   position: fixed;
