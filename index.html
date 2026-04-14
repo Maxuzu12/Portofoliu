@@ -58,7 +58,7 @@
 
 
 .hero {
-  height: 100vh;
+  min-height: 100dvh;
 
   display: flex;
   flex-direction: column;
@@ -67,7 +67,7 @@
 
   text-align: center;
 
-  padding: 20px;
+  padding: 40px 20px;
 
   animation: heroFloat 6s ease-in-out infinite;
 }
@@ -576,7 +576,7 @@ section {
   <a href="#proiecte">Proiecte</a>
 </nav>
 
-<form action="https://formspree.io/f/mnjlagde" method="POST">
+<form id="contact" action="https://formspree.io/f/mnjlagde" method="POST">
 <div id="toast">Mesaj trimis cu succes! 🚀</div>
   <input type="text" name="name" placeholder="Numele tău" required>
   <input type="email" name="email" placeholder="Email" required>
