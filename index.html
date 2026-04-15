@@ -8,6 +8,18 @@
 
 <style>
 
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+ opacity: 1;
+ transform: translateY(0);
+}
+
 .hero h1{
   letter-spacing: 1px;
 }
@@ -564,11 +576,32 @@ section {
 }
 
 /* PROIECTE */
+.proiect-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(circle at var(--x) var(--y), rgba(99,102,241,0.25), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.proiect-card:hover::before { 
+  opacity: 1;
+}
+
+
 .proiecte-container {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
   gap: 30px;
 }
+
+
+.project-card {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+}  
 
 .proiect-card {
   cursor: pointer;
@@ -577,7 +610,7 @@ section {
   border-radius: 16px;
   background: white;
   overflow: hidden;
-  transition: transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .proiect-card img {
@@ -588,6 +621,22 @@ section {
 .proiect-card:hover {
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+.proiect-card a {
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: #4f46e5;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+.proiect-card a:hover {
+  background: #6366f1;
+  transform: scale(1.05);
 }
 
 .dark .proiect-card {
@@ -657,7 +706,7 @@ section {
 
 <button class="dark-btn" onclick="darkMode()">Dark Mode</button>
 
-<section id="acasa" class="hero fade-in">
+<section id="acasa" class="hero fade-in reveal">
   <canvas id="particles"></canvas>
   
  <h1>
@@ -665,17 +714,17 @@ section {
   <span id="emoji">🚀</span>
 </h1> 
 
-  <p class="subtitle">Construiesc experiențe web 🚀</p>
-  <a href="#contact" class="btn">Lucrează cu mine</a>
+  <p class="subtitle">Disponibil pentru proiecte freelance</p>
+  <a href="#contact" class="btn">Incepe un proiect</a>
 </section>
 
 
-<section class="card fade-in" id="despre">
+<section class="card fade-in reveal" id="despre">
   <h2>Despre</h2>
   <p>Sunt din Romania si vreau sa devin mai bun la coding.</p>
 </section>
 
-<section class="card fade-in" id="proiecte">
+<section class="card fade-in reveal" id="proiecte">
   <h2>Proiecte</h2>
 
   <div class="proiecte-container">
@@ -684,9 +733,12 @@ section {
       <h3>Proiect 1</h3>
     </div>
 
-    <div class="proiect-card fade-in">
+    <div class="proiect-card reveal">
       <img src="https://picsum.photos/300/150">
+      <p>Site modern cu animatii</p>
       <h3>Proiect 2</h3>
+      <a href="#">live</a>
+      <a href = "#">GitHub</a>
     </div>
   </div>
 
@@ -759,8 +811,8 @@ window.addEventListener("scroll",()=>{
 /* TYPING */ 
 
 const texte = [
-  "Bine ai venit ",
-  "Construiesc proiecte ",
+  "Front End Developer ",
+  "Construiesc experiente web moderne",
   "Acesta e începutul "
 ];
   
@@ -927,6 +979,46 @@ function animateParticles(){
 }
 animateParticles();
 
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=> {
+reveals.forEach(el => {const top = el.getBoundingClientRect().top;
+  if(top < window.innerHeight - 100){
+    el.classList.add("active");
+  }
+})
+});
+const cards =
+document.querySelectorAll(".proiect-card");
+
+cards.forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+
+    card.style.setProperty("--x", (e.clientX - rect.left) + "px");
+    card.style.setProperty("--y", (e.clientY - rect.top) + "px");
+  });
+});
+  
+cards.forEach(card => {
+  card.addEventListener("mousemove", e => {
+    const rect = card.getBoundingClientRect();
+
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = -(y - centerY) / 10;
+    const rotateY = (x - centerX) / 10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
 
 
 </script>
