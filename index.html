@@ -8,7 +8,17 @@
 
 <style>
 
+  .proiect-card p {
+    flex-grow: 1;
+  }
 
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: centre;
+  gap: 14px;
+  margin-top: 10px;
+}
 
   .proiect { 
     display: flex;
@@ -715,7 +725,6 @@ section {
 }
 
 .proiect-card {
-  width: 300px;
   padding: 20px;
   border-radius: 20px;
 
@@ -724,16 +733,17 @@ section {
   text-align: center;
   box-shadow: 0 10px 30px 
   rgba(0,0,0,0.3);
-  transition: all 0.35s ease;
-  cubic-bezier:(0.4,0,0.2,1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
   padding: 20px;
   border-radius: 16px;
-  background: white;
   overflow: hidden;
-  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
 .proiect-card img {
@@ -855,24 +865,32 @@ section {
     
 
     <div class="proiect-card fade-in">
+
+      
+
   <img src="vercel.png" alt="Proiect 1">
   <h3>Vercel</h3>
   <p>Landing page modern cu animații</p>
+   <div class="btn-group"></div>
 
   <a href="https://vercel.com/maxuzu12s-projects/portofoliu-kjih" target="_blank" class="btn small">
     🚀 Live
   </a>
+  
 </div>
 
 <div class="proiect-card reveal">
   <img src="github.png" alt="Proiect 2">
   <h3>GitHub</h3>
   <p>Cod sursă și structură proiect</p>
-
+  <div class="btn-group"></div>
   <a href="https://github.com/Maxuzu12/Portofoliu" target="_blank" class="btn small secondary">
     💻 GitHub
   </a>
+
 </div>
+
+
      
   </div>
 
