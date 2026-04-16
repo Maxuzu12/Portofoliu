@@ -550,6 +550,15 @@ nav a:hover::after {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  @supports (-webkit-touch-callout: none) {
+  .hero h1 {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    -webkit-text-fill-color: initial !important;
+    color: #2a5cff !important;
+    text-shadow: none !important;
+  }
+}
 }
 
 .subtitle {
