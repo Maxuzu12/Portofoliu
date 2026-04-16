@@ -64,11 +64,25 @@ nav a.active {
  transform: translateY(0);
 }
 
-.hero h1{
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: bold;
+  color: #2a5cff;
+
   -webkit-font-smoothing: antialiased;
   transform: none !important;
   letter-spacing: 1px;
+
+  @media (min-width: 769px) {
+  .hero h1 {
+    background: linear-gradient(90deg, #2a5cff, #00c6ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
+}
+
+
 
 .btn{
   position: relative;
