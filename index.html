@@ -8,6 +8,16 @@
 
 <style>
 
+
+
+  .proiect { 
+    display: flex;
+    gap: 30px;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
   button {
   position: relative;
   overflow: hidden;
@@ -622,6 +632,12 @@ nav a:hover::after {
 }
 
 /* BUTTON */
+btn.secondary { 
+  background: #111;
+  box-shadow: 0 8px 20px
+  rgba(0,0,0,0.3);
+
+}
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -640,11 +656,14 @@ nav a:hover::after {
   overflow: hidden;
 
   -webkit-tap-highlight-color: transparent;
+  transition: all 0.3s ease all;
+  position: relative;
+
 }
 
 
 .btn:hover {
-  transform: translateY(-2px)
+  transform: translateY(-3px)
   scale(1.02);
   box-shadow: 0 12px 30px rgba(42,92,255,0.35);
 }
@@ -695,13 +714,19 @@ section {
   gap: 30px;
 }
 
-
-.project-card {
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease;
-}  
-
 .proiect-card {
+  width: 300px;
+  padding: 20px;
+  border-radius: 20px;
+
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  box-shadow: 0 10px 30px 
+  rgba(0,0,0,0.3);
+  transition: all 0.35s ease;
+  cubic-bezier:(0.4,0,0.2,1);
+  transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
   padding: 20px;
