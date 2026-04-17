@@ -7,6 +7,40 @@
 <title>Apopei Ionut | Front-End Developer</title>
 
 <style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s ease;
+  }
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  
+  input, textarea {
+    transition: all 0.25s ease;
+  }
+  input:focus,
+  textarea:focus { 
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 12px
+    rgba(59,130,246,0.5);
+  }
+  section { 
+    margin-bottom: 60px;
+  }
+
+  a:hover { 
+    opacity: 0.8;
+  }
+
+  h3{
+    letter-spacing: 0.5px;
+  }
 
   .proiect-card p {
     flex-grow: 1;
@@ -768,8 +802,8 @@ section {
   background: #0f172a;
   color: white;
   text-align: center;
-  box-shadow: 0 10px 30px 
-  rgba(0,0,0,0.3);
+  box-shadow: 0 8px 25px 
+  rgba(0,0,0,0.25);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   cursor: pointer;
@@ -784,11 +818,15 @@ section {
 }
 
 .proiect-card img {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
   width: 100%;
   border-radius: 10px;
 }
 
+
 .proiect-card:hover {
+ transform: scale(1.05);
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
@@ -811,7 +849,7 @@ section {
 .proiect-card:hover {
   transform: translateY(-8px)
   scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 .dark .proiect-card {
   background: #1e1e1e;
@@ -1288,6 +1326,27 @@ window.addEventListener("scroll", () => {
   });
 });
 
+const elements = document.querySelectorAll(".fade-in");
+
+function checkScroll() {}
+  elements.forEach((el, index) => {
+  const rect = el.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight - 100) {
+    setTimeout(() => {
+      el.classList.add("show");
+    }, index * 150);
+  }
+});
+
+  
+    
+    
+  
+
+
+window.addEventListener("scroll", checkScroll);
+window.addEventListener("load", checkScroll);
   
 
 
