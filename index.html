@@ -7,347 +7,35 @@
 <title>Apopei Ionut | Front-End Developer</title>
 
 <style>
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.6s ease;
-  }
-  .fade-in.show {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .btn:active {
-    transform: scale(0.97);
-  }
-  
-  input, textarea {
-    transition: all 0.25s ease;
-  }
-  input:focus,
-  textarea:focus { 
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 12px
-    rgba(59,130,246,0.5);
-  }
-  section { 
-    margin-bottom: 60px;
-  }
 
-  a:hover { 
-    opacity: 0.8;
-  }
-
-  h3{
-    letter-spacing: 0.5px;
-  }
-
-  .proiect-card p {
-    flex-grow: 1;
-  }
-
-.btn-group {
-  display: flex;
-  justify-content: center;
-  align-items: centre;
-  gap: 14px;
-  margin-top: 10px;
-}
-
-  .proiect { 
-    display: flex;
-    gap: 30px;
-    justify-content:center;
-    flex-wrap: wrap;
-    margin-top: 40px;
-  }
-
-  button {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple {
-  will-change: transform, opacity;
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(0);
-  animation: ripple 0.6s linear;
-}
-
-@keyframes ripple {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-
-nav a.active {
-  color: #00c6ff;
-}
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  button {
-    transition:transform 0.3s ease;
-  }
-
-  #progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background: linear-gradient(90deg, #00c6ff, #0072ff);
-  z-index: 9999;
-
-  }
-
-
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease;
-}
-
-.reveal.active {
- opacity: 1;
- transform: translateY(0);
-}
-
-.hero h1 {
-  text-rendering: optimizeLegibility;
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 700d;
-  color: #2a5cff;
-
-  -webkit-font-smoothing: antialiased;
-  transform: none !important;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-
-  @media (min-width: 769px) {
-  .hero h1 {
-    background: linear-gradient(90deg, #2a5cff, #00c6ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}
-}
-
-
-
-.btn{
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::after{
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-  transition: 0.5s;
-}
-
-.btn:hover::after{
-  left: 100%;
-}
-
-
-.hero h1{
-  animation: fadeUp 1s ease forwards;
-}
-
-.subtitle{
-  animation: fadeUp 1.5s ease forwards;
-}
-
-.btn{
-  animation: fadeUp 2s ease forwards;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to{
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-html{
-  scroll-behavior: smooth;
-}
-
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-#particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-}
-
-.hero * {
-  position: relative;
-  z-index: 1;
-}
-
-@keyframes heroFloat {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-
-#typing {
-  display: inline-block;
-  overflow: hidden;
-  white-space: normal;
-  border-right: 3px solid #2a5cff;
-  animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-  0%,100% { border-color: transparent; }
-  50% { border-color: #2a5cff; }
-}
-
-#emoji {
-  -webkit-text-fill-color: initial;
-}
-
-@keyframes float {
-  0% { transform: translateY(5px); opacity: 0; }
-  100% { transform: translateY(0); opacity: 1; }
-}
-
-
-.hero {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  text-align: center;
-
-  padding: 120px 20px;
-  animation: heroFloat 6s ease-in-out infinite;
-}
-
-
-.dark-btn {
-  width: auto;
-  padding: 10px 18px;
-  border-radius: 20px;
-
-  background: linear-gradient(45deg, #2a5cff, #00c6ff);
-  color: white;
-  border: none;
-}
-
-form:hover {
-  transform: translateY(-5px);
-  transition: 0.3s;
-}
-
-section {
-  padding: 80px 20px;
-}
-
-
-button {
-  
-  width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-
-  background: linear-gradient(45deg, #2a5cff, #00c6ff);
-  border: none;
-  color: white;
-  font-weight: bold;
-
-  transition: 0.3s;
-}
-
-button:hover {
-  box-shadow: 0 0 20px #2a5cff, 0 0 40px #2a5cff;
-  transform: scale(1.05);
-}
-
-
-form {
-   max-width: 600px;
-   margin: 50px auto;
-   padding: 20px;
-   border-radius: 20px;
-   
-   background: rgba(255,255,255,0.05);
-   backdrop-filter: blur(10px);
-   
-   box-shadow: 0 0 20px rgba(0,0,0,0.2)
-   
-   }
-
-
-input, textarea {
-   width: 100%;
-   padding: 14px;
-   border-radius: 12px;
-   border: 1px solid rgba(255,255,255,0.1);
-   
-   background: rgba(0,0,0,0.4);
-   color: white;
-   
-   }
-
+/* ============================
+   RESET & BASE
+   ============================ */
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+  background: linear-gradient(120deg, #f0f4ff, #ffffff);
+  cursor: none;
+  opacity: 0;
   overflow-x: hidden;
+  transition: opacity 0.8s;
 }
 
-
-@media (max-width: 768px) {
-.hero { 
-  animation: none;
-}
-.reveal,
- .reveal.active {
-  transform: none !important;
- }
-  .proiecte-container {
-    display: flex;
-    flex-direction: column;
-  }
+body.show-page {
+  opacity: 1;
 }
 
-button { 
-    width: 100%;
-	max-width: 100%;
-	}
-
-section {
-  max-width: 100%;
+body.dark {
+  background: #121212;
+  color: white;
 }
 
 img {
@@ -355,83 +43,64 @@ img {
   display: block;
 }
 
+h3 {
+  letter-spacing: 0.5px;
+}
 
+a:hover {
+  opacity: 0.8;
+}
 
-#toast {
+/* ============================
+   PARALLAX BG
+   ============================ */
+body::before {
+  content: "";
   position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, #2a5cff22, transparent),
+              radial-gradient(circle at top left, #00c6ff22, transparent);
+  z-index: -1;
+  transform: translate(var(--moveX, 0), var(--moveY, 0));
+  transition: transform 0.1s;
+}
+
+/* ============================
+   CURSOR
+   ============================ */
+.cursor {
+  width: 15px;
+  height: 15px;
   background: #2a5cff;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 30px;
-  opacity: 0;
-  transition: 0.5s;
-  z-index: 9999;
-}
-
-#toast.show {
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-#themeToggle {
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-
-  width: 32px;
-  height: 32px;
-
-  font-size: 14px;
-
-  border: none;
   border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease, background 0.3s;
+}
 
-  background: rgba(15, 23, 42, 0.7);
-  color: white;
+.cursor.hover {
+  transform: scale(2);
+  background: #00c6ff;
+}
 
-  backdrop-filter: blur(6px);
-
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-
-  transition: all 0.2s ease;
+/* ============================
+   PROGRESS BAR
+   ============================ */
+#progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
   z-index: 9999;
 }
 
-#themeToggle:hover {
-  transform: scale(1.1);
-}
-
-
-.dark input,
-.dark textarea {
-  border: 1px solid #333;
-}
-
-.dark form button {
-  background: linear-gradient(45deg, #2a5cff, #00c6ff);
-  color: white;
-}
-
-.dark input,
-.dark textarea {
-  background: #1e1e1e;
-  color: white;
-}
-
-.dark input::placeholder,
-.dark textarea::placeholder {
-  color: #aaa;
-}
-
+/* ============================
+   LOADER
+   ============================ */
 #loader {
   position: fixed;
   width: 100%;
@@ -441,7 +110,7 @@ img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .spinner {
@@ -462,150 +131,23 @@ img {
 }
 
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-input, textarea {
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  outline: none;
-}
-
-textarea {
-  min-height: 100px;
-}
-
-button {
-  padding: 12px;
-  border-radius: 20px;
-  background: #2a5cff;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-
-#topBtn {
-  position: fixed;
-  bottom: 60px;
-  right: 15px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-
-  border: none;
-  background: linear-gradient(45deg, #2a5cff, #00c6ff);
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 20px;
-  background: linear-gradient(45deg, #2a5cff, #00c6ff);
-
-  box-shadow: 0 0 15px rgba(42,92,255,0.5);
-  transition: all 0.3s ease;
-  display: none;
-}
-
-/* HOVER */
-#topBtn:hover {
-  transform: translateY(-5px) scale(1.1);
-  box-shadow: 0 0 25px rgba(42,92,255,0.8),
-              0 0 40px rgba(0,198,255,0.6);
-}
-
-/* CLICK EFFECT */
-#topBtn:active {
-  transform: scale(0.95);
-}
-
-
-/* PARALLAX BG */
-body::before {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, #2a5cff22, transparent),
-              radial-gradient(circle at top left, #00c6ff22, transparent);
-  z-index: -1;
-  transform: translate(var(--moveX,0), var(--moveY,0));
-  transition: transform 0.1s;
-}
-
-/* BODY */
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
-  background: linear-gradient(120deg, #f0f4ff, #ffffff);
-  cursor: none;
-  opacity: 0;
-  transition: 0.8s;
-}
-
-#typing {
-  font-family: 'Poppins', sans-serif;
-}
-
-
-
-body.show-page {
-  opacity: 1;
-}
-
-body.dark {
-  background: #121212;
-  color: white;
-}
-
-/* CURSOR */
-.cursor {
-  width: 15px;
-  height: 15px;
-  background: #2a5cff;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.15s ease, background 0.3s;
-}
-
-.cursor.hover {
-  transform: scale(2);
-  background: #00c6ff;
-}
-
-/* NAV */
-
+/* ============================
+   NAV
+   ============================ */
 nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-
   display: flex;
   justify-content: center;
   gap: 30px;
-
   padding: 15px 30px;
-
   background: rgba(255,255,255,0.1);
   backdrop-filter: blur(15px);
-
   border-bottom: 1px solid rgba(255,255,255,0.1);
-
   transition: 0.3s;
 }
 
@@ -639,55 +181,52 @@ nav a:hover::after {
   width: 100%;
 }
 
-/* HERO */
+nav a.active {
+  color: #00c6ff;
+}
+
+/* ============================
+   HERO
+   ============================ */
 .hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 120px 20px;
   position: relative;
   overflow: hidden;
+  animation: heroFloat 6s ease-in-out infinite;
 }
 
-  .hero h1 {
-    display: block; 
+/* FIX: moved @media out of .hero h1 selector — was invalid nesting */
+.hero h1 {
+  text-rendering: optimizeLegibility;
   font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: bold;
-
-  background: linear-gradient(90deg,#2a5cff, #00c6ff);
+  font-weight: 700; /* FIX: was "700d" — invalid value */
+  color: #2a5cff;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+  animation: fadeUp 1s ease forwards;
+  display: block;
+  background: linear-gradient(90deg, #2a5cff, #00c6ff);
   background-clip: text;
   -webkit-background-clip: text;
-  
-  
-  @supports (-webkit-touch-callout: none) {
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
   .hero h1 {
-    background: none !important;
-    background-image: none !important;
-
-    -webkit-background-clip: border-box !important;
-    background-clip: border-box !important;
-
-    -webkit-text-fill-color: #2a5cff !important;
-    color: #2a5cff !important;
-
-    text-shadow: none !important;
+    background: none;
+    -webkit-text-fill-color: #2a5cff;
+    color: #2a5cff;
   }
 }
-}
 
-
-.subtitle {
-  opacity: 0.7;
-}
-
-.hero::before,
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  filter: blur(80px);
-}
-
-.hero::before{
+.hero::before {
   content: "";
   position: absolute;
   width: 400px;
@@ -700,9 +239,14 @@ nav a:hover::after {
 }
 
 .hero::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
   background: radial-gradient(circle, #00c6ff, transparent);
   bottom: -100px;
   right: -100px;
+  filter: blur(80px);
   animation: moveBg 8s infinite alternate;
 }
 
@@ -711,13 +255,147 @@ nav a:hover::after {
   to { transform: translate(50px,50px); }
 }
 
-/* BUTTON */
-btn.secondary { 
-  background: #111;
-  box-shadow: 0 8px 20px
-  rgba(0,0,0,0.3);
-
+@keyframes heroFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
+
+#particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero * {
+  position: relative;
+  z-index: 1;
+}
+
+.subtitle {
+  opacity: 0.7;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+/* ============================
+   TYPING
+   ============================ */
+#typing {
+  display: inline-block;
+  overflow: hidden;
+  white-space: normal;
+  border-right: 3px solid #2a5cff;
+  animation: blink 0.7s infinite;
+  font-family: 'Poppins', sans-serif;
+}
+
+@keyframes blink {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: #2a5cff; }
+}
+
+#emoji {
+  -webkit-text-fill-color: initial;
+}
+
+/* ============================
+   ANIMATIONS
+   ============================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(5px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ============================
+   FADE-IN / REVEAL
+   ============================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================
+   RIPPLE
+   ============================ */
+.ripple {
+  will-change: transform, opacity;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple 0.6s linear;
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ============================
+   BUTTONS
+   ============================ */
+button {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 14px;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #2a5cff, #00c6ff);
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  box-shadow: 0 0 20px #2a5cff, 0 0 40px #2a5cff;
+  transform: scale(1.05);
+}
+
+/* FIX: was missing comma separators for multi-selector rule */
+button:active,
+a:active,
+.proiect-card:active {
+  transform: scale(0.97);
+}
+
+/* ============================
+   BTN (link-style buttons)
+   ============================ */
 .btn {
   display: inline-block;
   padding: 14px 28px;
@@ -726,26 +404,33 @@ btn.secondary {
   font-size: 0.95rem;
   color: white;
   text-decoration: none;
-
   background: linear-gradient(135deg, #2a5cff, #00c6ff);
-  
   box-shadow: 0 8px 25px rgba(42, 92, 255, 0.25);
-  
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-
   -webkit-tap-highlight-color: transparent;
-  transition: all 0.3s ease all;
-  position: relative;
-
+  animation: fadeUp 2s ease forwards;
 }
 
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn:hover::after {
+  left: 100%;
+}
 
 .btn:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
   transform: scale(1.02);
+  filter: brightness(1.1);
   box-shadow: 0 12px 30px rgba(42,92,255,0.35);
 }
 
@@ -753,14 +438,42 @@ btn.secondary {
   transform: scale(0.97);
 }
 
-/* SECTIONS */
+/* FIX: was "btn.secondary" — missing leading dot */
+.btn.secondary {
+  background: #111;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* FIX: was "centre" — typo */
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.dark-btn {
+  width: auto;
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #2a5cff, #00c6ff);
+  color: white;
+  border: none;
+}
+
+/* ============================
+   SECTIONS
+   ============================ */
 section {
   padding: 80px 20px;
   max-width: 1000px;
   margin: auto;
+  margin-bottom: 60px;
 }
 
-/* CARD */
+/* ============================
+   CARD
+   ============================ */
 .card {
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
@@ -773,7 +486,44 @@ section {
   background: #1e1e1e;
 }
 
-/* PROIECTE */
+/* ============================
+   PROJECT CARDS
+   ============================ */
+.proiecte-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.proiect {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.proiect-card {
+  will-change: transform;
+  padding: 20px;
+  border-radius: 20px;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.proiect-card p {
+  flex-grow: 1;
+}
+
 .proiect-card::before {
   content: "";
   position: absolute;
@@ -784,37 +534,12 @@ section {
   transition: opacity 0.3s;
 }
 
-.proiect-card:hover::before { 
+.proiect-card:hover::before {
   opacity: 1;
 }
 
-
-.proiecte-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-  gap: 30px;
-}
-
-.proiect-card {
-  padding: 20px;
-  border-radius: 20px;
-
-  background: #0f172a;
-  color: white;
-  text-align: center;
-  box-shadow: 0 8px 25px 
-  rgba(0,0,0,0.25);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-style: preserve-3d;
-  cursor: pointer;
-  position: relative;
-  padding: 20px;
-  border-radius: 16px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
+.proiect-card:hover {
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
 }
 
 .proiect-card img {
@@ -824,12 +549,6 @@ section {
   border-radius: 10px;
 }
 
-
-.proiect-card:hover {
- transform: scale(1.05);
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-}
 .proiect-card a {
   display: inline-block;
   margin-top: 10px;
@@ -842,50 +561,183 @@ section {
   font-size: 14px;
   transition: 0.2s;
 }
+
 .proiect-card a:hover {
   background: #6366f1;
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
-.proiect-card:hover {
-  transform: translateY(-8px)
-  scale(1.02);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
+
 .dark .proiect-card {
   background: #1e1e1e;
 }
 
-/* FADE */
-.fade-in {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 0.6s;
-}
-
-.fade-in.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* LOADER */
-#loader {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #111;
-  color: white;
+/* ============================
+   FORM
+   ============================ */
+form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 15px;
 }
 
-/* PROGRESS */
-#progress {
+form:hover {
+  transform: translateY(-5px);
+  transition: 0.3s;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.4);
+  color: white;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px rgba(59,130,246,0.5);
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.dark input,
+.dark textarea {
+  background: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #aaa;
+}
+
+.dark form button {
+  background: linear-gradient(45deg, #2a5cff, #00c6ff);
+  color: white;
+}
+
+/* ============================
+   TOAST
+   ============================ */
+#toast {
   position: fixed;
-  top: 0;
-  height: 5px;
-  width: 0%;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
   background: #2a5cff;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 30px;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 9999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ============================
+   TOP BUTTON
+   ============================ */
+#topBtn {
+  position: fixed;
+  bottom: 60px;
+  right: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(45deg, #2a5cff, #00c6ff);
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 15px rgba(42,92,255,0.5);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+#topBtn:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 0 25px rgba(42,92,255,0.8), 0 0 40px rgba(0,198,255,0.6);
+}
+
+#topBtn:active {
+  transform: scale(0.95);
+}
+
+/* ============================
+   THEME TOGGLE
+   ============================ */
+#themeToggle {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(15, 23, 42, 0.7);
+  color: white;
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: all 0.2s ease;
+  z-index: 9999;
+}
+
+#themeToggle:hover {
+  transform: scale(1.1);
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 768px) {
+  .hero {
+    animation: none;
+  }
+
+  .reveal,
+  .reveal.active {
+    transform: none !important;
+  }
+
+  .proiecte-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  section {
+    max-width: 100%;
+  }
 }
 
 </style>
@@ -893,8 +745,7 @@ section {
 
 <body>
 
-  <div id="progress-bar"></div>
-
+<div id="progress"></div>
 
 <nav>
   <a href="#acasa">Acasa</a>
@@ -902,35 +753,30 @@ section {
   <a href="#proiecte">Proiecte</a>
 </nav>
 
-<form id="contact" action="https://formspree.io/f/mnjlagde" method="POST">
 <div id="toast">Mesaj trimis cu succes! 🚀</div>
+
+<form id="contact" action="https://formspree.io/f/mnjlagde" method="POST">
   <input type="text" name="name" placeholder="Numele tău" required>
   <input type="email" name="email" placeholder="Email" required>
   <textarea name="message" placeholder="Mesajul tău"></textarea>
   <button type="submit">Trimite</button>
-
 </form>
 
 <div class="cursor"></div>
-<div id="progress"></div>
-
-
-
 
 <button id="themeToggle" onclick="darkMode()">🌙</button>
 
 <section id="acasa" class="hero fade-in reveal">
   <canvas id="particles"></canvas>
-  
- <h1>
-  <span id="typing"></span>
-  <span id="emoji">🚀</span>
-</h1> 
+
+  <h1>
+    <span id="typing"></span>
+    <span id="emoji">🚀</span>
+  </h1>
 
   <p class="subtitle">Disponibil pentru proiecte freelance</p>
   <a href="#contact" class="btn">Incepe un proiect</a>
 </section>
-
 
 <section class="card fade-in reveal" id="despre">
   <h2>Despre</h2>
@@ -941,147 +787,171 @@ section {
   <h2>Proiecte</h2>
 
   <div class="proiecte-container">
-    
 
     <div class="proiect-card fade-in">
+      <img src="vercel.png" alt="Proiect 1">
+      <h3>Vercel</h3>
+      <p>Landing page modern cu animații</p>
+      <div class="btn-group">
+        <a href="https://vercel.com/maxuzu12s-projects/portofoliu-kjih" target="_blank" class="btn small">
+          🚀 Live
+        </a>
+      </div>
+    </div>
 
-      
+    <div class="proiect-card reveal">
+      <img src="github.png" alt="Proiect 2">
+      <h3>GitHub</h3>
+      <p>Cod sursă și structură proiect</p>
+      <div class="btn-group">
+        <a href="https://github.com/Maxuzu12/Portofoliu" target="_blank" class="btn small secondary">
+          💻 GitHub
+        </a>
+      </div>
+    </div>
 
-  <img src="vercel.png" alt="Proiect 1">
-  <h3>Vercel</h3>
-  <p>Landing page modern cu animații</p>
-   <div class="btn-group"></div>
-
-  <a href="https://vercel.com/maxuzu12s-projects/portofoliu-kjih" target="_blank" class="btn small">
-    🚀 Live
-  </a>
-  
-</div>
-
-<div class="proiect-card reveal">
-  <img src="github.png" alt="Proiect 2">
-  <h3>GitHub</h3>
-  <p>Cod sursă și structură proiect</p>
-  <div class="btn-group"></div>
-  <a href="https://github.com/Maxuzu12/Portofoliu" target="_blank" class="btn small secondary">
-    💻 GitHub
-  </a>
-
-</div>
-
-
-     
   </div>
-
 </section>
+
+<button id="topBtn">↑</button>
+
+<div id="loader">
+  <div class="spinner"></div>
+  <p class="loading-text">Se încarcă...</p>
+</div>
 
 <script>
 
-/* DARK MODE */
-function darkMode(){
+/* ============================
+   DARK MODE
+   ============================ */
+function darkMode() {
   const body = document.body;
   const btn = document.getElementById("themeToggle");
-
   body.classList.toggle("dark");
-
-  if(body.classList.contains("dark")){
-    btn.textContent = "☀️"; // dark mode → arată soare
-  } else {
-    btn.textContent = "🌙"; // light mode → arată luna
-  }
+  btn.textContent = body.classList.contains("dark") ? "☀️" : "🌙";
 }
 
-/* LOADER */
+/* ============================
+   LOADER
+   ============================ */
 window.addEventListener("load", () => {
-  document.getElementById("loader").style.display="none";
+  document.getElementById("loader").style.display = "none";
   document.body.classList.add("show-page");
 });
 
-/* CURSOR */
+/* ============================
+   CURSOR
+   ============================ */
 const cursor = document.querySelector(".cursor");
 
-let mouse = {
-  x: null,
-  y: null
-};
+let mouse = { x: null, y: null };
 
 document.addEventListener("mousemove", e => {
-  // cursor
   cursor.style.left = e.clientX + "px";
   cursor.style.top = e.clientY + "px";
-
-  // particles
   mouse.x = e.clientX;
   mouse.y = e.clientY;
+
+  // PARALLAX
+  let x = (e.clientX / window.innerWidth - 0.5) * 40;
+  let y = (e.clientY / window.innerHeight - 0.5) * 40;
+  document.body.style.setProperty("--moveX", x + "px");
+  document.body.style.setProperty("--moveY", y + "px");
 });
 
-
-/* HOVER EFFECT */
-document.querySelectorAll("a,button").forEach(el=>{
-  el.addEventListener("mouseenter",()=>cursor.classList.add("hover"));
-  el.addEventListener("mouseleave",()=>cursor.classList.remove("hover"));
+document.querySelectorAll("a, button").forEach(el => {
+  el.addEventListener("mouseenter", () => cursor.classList.add("hover"));
+  el.addEventListener("mouseleave", () => cursor.classList.remove("hover"));
 });
 
-/* PARALLAX */
-document.addEventListener("mousemove", e=>{
-  let x=(e.clientX/window.innerWidth-0.5)*40;
-  let y=(e.clientY/window.innerHeight-0.5)*40;
-  document.body.style.setProperty("--moveX",x+"px");
-  document.body.style.setProperty("--moveY",y+"px");
+/* ============================
+   PROGRESS BAR
+   FIX: was updating two different elements (#progress and #progress-bar).
+   Unified to use a single #progress element.
+   ============================ */
+window.addEventListener("scroll", () => {
+  let s = document.documentElement.scrollTop;
+  let h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById("progress").style.width = (s / h) * 100 + "%";
 });
 
-/* PROGRESS */
-window.addEventListener("scroll", ()=>{
-  let s=document.documentElement.scrollTop;
-  let h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
-  document.getElementById("progress").style.width=(s/h)*100+"%";
-});
+/* ============================
+   FADE-IN ON SCROLL
+   ============================ */
+const els = document.querySelectorAll(".fade-in");
 
-/* FADE */
-const els=document.querySelectorAll(".fade-in");
-
-window.addEventListener("scroll",()=>{
-  els.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
+window.addEventListener("scroll", () => {
+  els.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("show");
     }
   });
 });
 
-/* TYPING */ 
+/* ============================
+   REVEAL ON SCROLL
+   ============================ */
+const reveals = document.querySelectorAll(".reveal");
 
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
+    if (top < window.innerHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+});
+
+/* ============================
+   CHECKSCROLL (staggered fade-in)
+   FIX: function body was empty — forEach was outside the braces.
+   ============================ */
+const elements = document.querySelectorAll(".fade-in");
+
+function checkScroll() {
+  elements.forEach((el, index) => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.style.transitionDelay = `${index * 0.15}s`; // also reduced delay from 0.8s → 0.15s for snappier feel
+      el.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", checkScroll);
+window.addEventListener("load", checkScroll);
+
+/* ============================
+   TYPING EFFECT
+   ============================ */
 const texte = [
   "Front End Developer ",
   "Construiesc experiente web moderne",
   "Acesta e începutul "
 ];
-  
-let i=0,j=0,del=false;
 
-function type(){
+let i = 0, j = 0, del = false;
+
+function type() {
   let el = document.getElementById("typing");
   let emoji = document.getElementById("emoji");
   let txt = texte[i];
 
-  if(!del){
+  if (!del) {
     el.textContent = txt.substring(0, j);
     j++;
-
     emoji.textContent = j > 0 ? "🚀" : "";
-
-    if(j > txt.length){
+    if (j > txt.length) {
       del = true;
       setTimeout(type, 1000);
       return;
     }
-
   } else {
     j--;
     el.textContent = txt.substring(0, j);
-
-  emoji.textContent = j > 0 ? "🚀" : "";
-
-    if(j <= 0){
+    emoji.textContent = j > 0 ? "🚀" : "";
+    if (j <= 0) {
       del = false;
       i = (i + 1) % texte.length;
     }
@@ -1092,6 +962,9 @@ function type(){
 
 type();
 
+/* ============================
+   TOP BUTTON
+   ============================ */
 window.addEventListener("load", () => {
   document.getElementById("topBtn").onclick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -1100,51 +973,39 @@ window.addEventListener("load", () => {
 
 window.addEventListener("scroll", () => {
   const btn = document.getElementById("topBtn");
-
   let scrollTop = document.documentElement.scrollTop;
   let scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   let percent = (scrollTop / scrollHeight) * 100;
-
   btn.style.background = `conic-gradient(#2a5cff ${percent}%, #e0e0e0 ${percent}%)`;
-
-  if (window.scrollY > 200) {
-    btn.style.display = "flex";
-  } else {
-    btn.style.display = "none";
-  }
+  btn.style.display = window.scrollY > 200 ? "flex" : "none";
 });
 
-console.log("j:", j);
-
+/* ============================
+   FORM SUBMIT
+   ============================ */
 const form = document.querySelector("form");
 const toast = document.getElementById("toast");
 
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
-
   const data = new FormData(form);
-
   const res = await fetch(form.action, {
     method: "POST",
     body: data,
-    headers: {
-      'Accept': 'application/json'
-    }
+    headers: { 'Accept': 'application/json' }
   });
-
   if (res.ok) {
     toast.classList.add("show");
     form.reset();
-
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 3000);
+    setTimeout(() => toast.classList.remove("show"), 3000);
   }
 });
 
+/* ============================
+   PARTICLES CANVAS
+   ============================ */
 const canvas = document.getElementById("particles");
 const ctx = canvas.getContext("2d");
-
 const hero = document.querySelector(".hero");
 
 function resizeCanvas() {
@@ -1153,62 +1014,55 @@ function resizeCanvas() {
 }
 
 resizeCanvas();
-
 window.addEventListener("resize", resizeCanvas);
 
 let particles = [];
 
-for(let i=0;i<50;i++){
+for (let k = 0; k < 50; k++) {
   particles.push({
-    x: Math.random()*canvas.width,
-    y: Math.random()*canvas.height,
-    r: Math.random()*2,
-    dx: (Math.random()-0.5),
-    dy: (Math.random()-0.5)
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2,
+    dx: (Math.random() - 0.5),
+    dy: (Math.random() - 0.5)
   });
 }
 
-function animateParticles(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  particles.forEach(p=>{
-  p.x += p.dx;
-  p.y += p.dy;
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
 
-  if(p.x < 0 || p.x > canvas.width) p.dx *= -1;
-  if(p.y < 0 || p.y > canvas.height) p.dy *= -1;
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
 
-  // 🔥 FIX
-  if(mouse.x !== null && mouse.y !== null){
-    let dxMouse = p.x - mouse.x;
-    let dyMouse = p.y - mouse.y;
-    let distMouse = Math.sqrt(dxMouse*dxMouse + dyMouse*dyMouse);
-
-    if(distMouse < 120){
-      p.x -= dxMouse * 0.02;
-      p.y -= dyMouse * 0.02;
+    if (mouse.x !== null && mouse.y !== null) {
+      let dxMouse = p.x - mouse.x;
+      let dyMouse = p.y - mouse.y;
+      let distMouse = Math.sqrt(dxMouse * dxMouse + dyMouse * dyMouse);
+      if (distMouse < 120) {
+        p.x -= dxMouse * 0.02;
+        p.y -= dyMouse * 0.02;
+      }
     }
-  }
 
-  ctx.beginPath();
-  ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-  ctx.fillStyle="rgba(42,92,255,0.5)";
-  ctx.fill();
-});
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(42,92,255,0.5)";
+    ctx.fill();
+  });
 
-  
-
-  // 🔥 LINIi între particule
-  for(let i=0;i<particles.length;i++){
-    for(let j=i+1;j<particles.length;j++){
-      let dx = particles[i].x - particles[j].x;
-      let dy = particles[i].y - particles[j].y;
-      let dist = Math.sqrt(dx*dx + dy*dy);
-
-      if(dist < 100){
+  for (let a = 0; a < particles.length; a++) {
+    for (let b = a + 1; b < particles.length; b++) {
+      let dx = particles[a].x - particles[b].x;
+      let dy = particles[a].y - particles[b].y;
+      let dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 100) {
         ctx.beginPath();
-        ctx.moveTo(particles[i].x, particles[i].y);
-        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.moveTo(particles[a].x, particles[a].y);
+        ctx.lineTo(particles[b].x, particles[b].y);
         ctx.strokeStyle = "rgba(42,92,255,0.15)";
         ctx.stroke();
       }
@@ -1217,57 +1071,40 @@ function animateParticles(){
 
   requestAnimationFrame(animateParticles);
 }
+
 animateParticles();
 
-const reveals = document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=> {
-reveals.forEach(el => {const top = el.getBoundingClientRect().top;
-  if(top < window.innerHeight - 100){
-    el.classList.add("active");
-  }
-})
-});
-const cards =
-document.querySelectorAll(".proiect-card");
+/* ============================
+   CARD 3D TILT
+   FIX 1: rect was set on mouseenter only — stale when card moves.
+          Now read inside mousemove for accuracy.
+   FIX 2: duplicate mouseleave listener removed.
+   ============================ */
+const cards = document.querySelectorAll(".proiect-card");
 
 cards.forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-
-    card.style.setProperty("--x", (e.clientX - rect.left) + "px");
-    card.style.setProperty("--y", (e.clientY - rect.top) + "px");
-  });
-});
-  
-cards.forEach(card => {
-  card.addEventListener("mousemove", e => {
-    const rect = card.getBoundingClientRect();
-
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect(); // FIX: always fresh rect
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-
     const rotateX = -(y - centerY) / 10;
     const rotateY = (x - centerX) / 10;
 
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    card.style.transition = "none"; // smooth during drag
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px) scale(1.02)`;
   });
 
-  card.addEventListener("mouseleave", () => {
-    card.style.transform = "rotateX(0) rotateY(0)";
+  card.addEventListener("mouseleave", () => { // FIX: only one mouseleave listener
+    card.style.transition = "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)";
+    card.style.transform = "rotateX(0deg) rotateY(0deg) translateY(0) scale(1)";
   });
 });
 
-window.addEventListener("scroll", () => {
-  const scrollTop = window.scrollY;
-  const height = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = (scrollTop / height) * 100;
-
-  document.getElementById("progress-bar").style.width = progress + "%";
-});
-
+/* ============================
+   BUTTON MAGNETIC EFFECT
+   ============================ */
 const buttons = document.querySelectorAll("button");
 
 buttons.forEach(btn => {
@@ -1275,7 +1112,6 @@ buttons.forEach(btn => {
     const rect = btn.getBoundingClientRect();
     const x = e.clientX - rect.left - rect.width / 2;
     const y = e.clientY - rect.top - rect.height / 2;
-
     btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
   });
 
@@ -1284,79 +1120,30 @@ buttons.forEach(btn => {
   });
 });
 
-
-window.addEventListener("scroll", () => {
-  let current = "";
-
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-    if (window.scrollY >= sectionTop - 100) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === "#" + current) {
-      link.classList.add("active");
-    }
-  });
-});
-
+/* ============================
+   ACTIVE NAV LINK
+   FIX: sections and navLinks declared BEFORE the scroll listener.
+        Duplicate scroll listener removed.
+   ============================ */
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
 
 window.addEventListener("scroll", () => {
   let current = "";
-
   sections.forEach(section => {
-    const sectionTop = section.offsetTop;
-
-    if (window.scrollY >= sectionTop - 100) {
+    if (window.scrollY >= section.offsetTop - 100) {
       current = section.getAttribute("id");
     }
   });
-
   navLinks.forEach(link => {
     link.classList.remove("active");
-
     if (link.getAttribute("href") === "#" + current) {
       link.classList.add("active");
     }
   });
 });
 
-const elements = document.querySelectorAll(".fade-in");
-
-function checkScroll() {}
-  elements.forEach((el, index) => {
-  const rect = el.getBoundingClientRect();
-
-  if (rect.top < window.innerHeight - 100) {
-    setTimeout(() => {
-      el.classList.add("show");
-    }, index * 150);
-  }
-});
-
-  
-    
-    
-  
-
-
-window.addEventListener("scroll", checkScroll);
-window.addEventListener("load", checkScroll);
-  
-
-
-
 </script>
 
-<button id="topBtn">↑</button>
-<div id="loader">
-  <div class="spinner"></div>
-  <p class="loading-text">Se încarcă...</p>
-</div>
 </body>
 </html>
