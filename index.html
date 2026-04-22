@@ -9,6 +9,13 @@
 
 <style>
 
+  .gradient-title {
+    background: -webkit-repeating-linear-gradient(90deg, #2a5cff, #00c6ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
 /* ============================
    RESET & BASE
    ============================ */
@@ -508,6 +515,7 @@ section {
    CARD
    ============================ */
 .card {
+  border: 1px solid rgba(42, 92, 255, 0.15);
   background: rgba(255,255,255,0.7);
   backdrop-filter: blur(10px);
   padding: 20px;
@@ -911,12 +919,12 @@ footer {
 
 <!-- FIX: sectiunea "Despre" nu mai contine un <section id="skills"> imbricat gresit -->
 <section class="card fade-in reveal" id="despre">
-  <h2>Despre</h2>
+  <h2 class= "gradient-title" >Despre</h2>
   <p>Am început să programez acum mai puțin de un an și de atunci nu m-am mai oprit. Mă concentrez pe front-end — HTML, CSS, JavaScript și React — și îmi place în special să construiesc landing pages care arată și funcționează profesional. Fiecare proiect e o șansă să devin mai bun.</p>
 </section>
 
 <section class="card fade-in reveal" id="skills">
-  <h2>Skills</h2>
+  <h2 class="gradient-title">Skills</h2>
   <div class="skills-grid">
     <div class="skill-card">
       <span class="skill-icon">🌐</span>
@@ -969,7 +977,7 @@ footer {
 
 <!-- FIX: contact e acum o sectiune cu titlu, nu doar un <form> -->
 <section id="contact" class="fade-in reveal">
-  <h2>Contact</h2>
+  <h2 class="gradient-title">Contact</h2>
   <p class="contact-subtitle">Ai un proiect în minte? Scrie-mi și îți răspund cât mai curând.</p>
   <form action="https://formspree.io/f/mnjlagde" method="POST">
     <input type="text" name="name" placeholder="Numele tău" required>
