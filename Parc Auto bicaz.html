@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Parc Auto Bicaz – Mașini de calitate în inima Neamțului. Găsește vehiculul perfect la Bicaz, Neamț.">
+<title>AutoBicaz | Parc Auto Bicaz, Neamț</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --red: #e01a1a;
+  --red-dark: #b01010;
+  --gold: #c9a84c;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --card: #161616;
+  --border: #2a2a2a;
+  --text: #e8e8e8;
+  --muted: #888;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--black);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+/* ── PROGRESS BAR ── */
+#progress {
+  position: fixed; top: 0; left: 0;
+  height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+  z-index: 9999;
+  transition: width 0.1s;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+  height: 70px;
+  background: rgba(10,10,10,0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.8rem;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.nav-logo span { color: var(--red); }
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px; left: 0;
+  width: 0; height: 2px;
+  background: var(--red);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 9px 22px;
+  border-radius: 4px;
+  font-size: 0.8rem !important;
+  letter-spacing: 1px !important;
+  transition: background 0.2s !important;
+}
+
+.nav-cta:hover { background: var(--red-dark) !important; color: var(--white) !important; }
+.nav-cta::after { display: none !important; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 60px;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(105deg, rgba(10,10,10,0.97) 45%, rgba(10,10,10,0.5) 100%),
+    url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1600&q=80') center/cover no-repeat;
+}
+
+.hero-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(224,26,26,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(224,26,26,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.6;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(224,26,26,0.12);
+  border: 1px solid rgba(224,26,26,0.3);
+  color: var(--red);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin-bottom: 28px;
+  animation: fadeUp 0.6s ease both;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.7); }
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 0.95;
+  letter-spacing: 2px;
+  color: var(--white);
+  animation: fadeUp 0.7s 0.1s ease both;
+}
+
+.hero h1 .accent { color: var(--red); }
+.hero h1 .outline {
+  -webkit-text-stroke: 2px rgba(255,255,255,0.25);
+  color: transparent;
+}
+
+.hero-sub {
+  margin-top: 24px;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 460px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-sub strong { color: var(--gold); font-weight: 500; }
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 40px;
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--red);
+  color: white;
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(224,26,26,0.3);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-ghost:hover {
+  border-color: var(--muted);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  position: absolute;
+  bottom: 60px; right: 60px;
+  z-index: 2;
+  display: flex;
+  gap: 40px;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+
+.stat {
+  text-align: center;
+  padding: 20px 28px;
+  background: rgba(22,22,22,0.8);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--red);
+  border-radius: 4px;
+  backdrop-filter: blur(10px);
+}
+
+.stat-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2.2rem;
+  color: var(--white);
+  letter-spacing: 2px;
+  line-height: 1;
+}
+
+.stat-num span { color: var(--red); }
+
+.stat-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ── TICKER ── */
+.ticker {
+  background: var(--red);
+  padding: 12px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-inner {
+  display: inline-block;
+  animation: ticker 25s linear infinite;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 0.95rem;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.85);
+}
+
+.ticker-inner span {
+  margin: 0 30px;
+  color: rgba(255,255,255,0.4);
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ── SECTION COMMONS ── */
+section { padding: 100px 60px; }
+
+.section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--red);
+  border-left: 3px solid var(--red);
+  padding-left: 12px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  letter-spacing: 2px;
+  color: var(--white);
+  line-height: 1;
+}
+
+.section-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 12px;
+  max-width: 480px;
+}
+
+/* ── CARS GRID ── */
+#masini { background: var(--dark); }
+
+.cars-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+
+.filter-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.filter-tab {
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  border-radius: 3px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.filter-tab.active, .filter-tab:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+}
+
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.car-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+  position: relative;
+}
+
+.car-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(224,26,26,0.4);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(224,26,26,0.15);
+}
+
+.car-img {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background: #1a1a1a;
+}
+
+.car-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+  display: block;
+}
+
+.car-card:hover .car-img img { transform: scale(1.06); }
+
+.car-badge {
+  position: absolute;
+  top: 14px; left: 14px;
+  background: var(--red);
+  color: white;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.car-badge.nou { background: #16a34a; }
+.car-badge.rezervat { background: var(--gold); color: var(--black); }
+
+.car-body {
+  padding: 22px;
+}
+
+.car-brand {
+  font-size: 0.7rem;
+  color: var(--red);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.car-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.5rem;
+  color: var(--white);
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.car-specs {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.spec {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.spec-icon { font-size: 0.9rem; }
+
+.car-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.car-price {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 1.6rem;
+  color: var(--white);
+  letter-spacing: 1px;
+}
+
+.car-price small {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-weight: 400;
+  display: block;
+  letter-spacing: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.car-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+  width: auto;
+}
+
+.car-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: white;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── WHY US ── */
+#avantaje {
+  background: var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+#avantaje::before {
+  content: 'AUTO';
+  position: absolute;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 18rem;
+  color: rgba(255,255,255,0.015);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 20px;
+}
+
+.avantaje-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.avantaje-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 40px;
+}
+
+.avantaj {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--red);
+  border-radius: 4px;
+  transition: all 0.3s;
+}
+
+.avantaj:hover {
+  background: #1c1c1c;
+  transform: translateX(6px);
+}
+
+.avantaj-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(224,26,26,0.1);
+  border-radius: 4px;
+}
+
+.avantaj-title {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.avantaj-text {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.avantaje-visual {
+  position: relative;
+}
+
+.big-number {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 10rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--border);
+  letter-spacing: 4px;
+  margin-bottom: -20px;
+}
+
+.visual-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--gold));
+}
+
+.visual-card-title {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.85rem;
+}
+
+.rating-row:last-child { border-bottom: none; }
+.rating-label { color: var(--muted); }
+
+.rating-stars { color: var(--gold); letter-spacing: 2px; }
+
+/* ── CONTACT ── */
+#contact { background: var(--dark); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.contact-icon {
+  width: 44px; height: 44px;
+  background: rgba(224,26,26,0.1);
+  border: 1px solid rgba(224,26,26,0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.contact-detail-label {
+  font-size: 0.7rem;
+  color: var(--red);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.contact-detail-value {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contact-detail-sub {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.map-placeholder {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 320px;
+  position: relative;
+}
+
+.map-placeholder iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  filter: grayscale(1) invert(0.9) contrast(0.85);
+  min-height: 320px;
+}
+
+.map-overlay-label {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: var(--red);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 2px;
+}
+
+/* ── CONTACT FORM ── */
+.form-section {
+  background: var(--black);
+  padding: 100px 60px;
+}
+
+.form-wrap {
+  max-width: 700px;
+  margin: 50px auto 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.form-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.form-input {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--white);
+  padding: 14px 18px;
+  border-radius: 4px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.form-input::placeholder { color: #444; }
+
+.form-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(224,26,26,0.08);
+}
+
+textarea.form-input {
+  min-height: 130px;
+  resize: vertical;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: #050505;
+  border-top: 1px solid var(--border);
+  padding: 60px 60px 40px;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 50px;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-brand .logo {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2rem;
+  letter-spacing: 3px;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.footer-brand .logo span { color: var(--red); }
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 280px;
+}
+
+.footer-col-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links-list a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.footer-links-list a:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.footer-bottom a {
+  color: var(--red);
+  text-decoration: none;
+}
+
+/* ── FADE ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  nav { padding: 0 30px; }
+  .hero { padding: 0 30px; }
+  section { padding: 80px 30px; }
+  .form-section { padding: 80px 30px; }
+  footer { padding: 50px 30px 30px; }
+  .cars-grid { grid-template-columns: repeat(2, 1fr); }
+  .avantaje-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .hero-stats { position: static; margin-top: 50px; }
+  .hero { flex-direction: column; justify-content: center; padding-top: 100px; }
+}
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .cars-grid { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr; gap: 30px; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .cars-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-ghost { justify-content: center; }
+}
+
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">AUTO<span>BICAZ</span></a>
+  <ul class="nav-links">
+    <li><a href="#masini">Mașini</a></li>
+    <li><a href="#avantaje">De ce noi</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Contactează-ne</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="acasa">
+  <div class="hero-bg"></div>
+  <div class="hero-grid-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      📍 Bicaz, Neamț — Parc Auto
+    </div>
+
+    <h1>
+      MAȘINI<br>
+      <span class="accent">DE CALITATE</span><br>
+      <span class="outline">LA TINE</span>
+    </h1>
+
+    <p class="hero-sub">
+      Parcul auto de referință din <strong>Bicaz, Neamț</strong>. Oferte transparente, vehicule verificate și servicii de finanțare rapide.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#masini" class="btn-primary">
+        🚗 Vezi mașinile disponibile
+      </a>
+      <a href="#contact" class="btn-ghost">
+        📞 Sună acum
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">50<span>+</span></div>
+        <div class="stat-label">Mașini stoc</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">8<span>+</span></div>
+        <div class="stat-label">Ani experiență</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">500<span>+</span></div>
+        <div class="stat-label">Clienți mulțumiți</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    PARC AUTO BICAZ <span>✦</span> MAȘINI VERIFICATE <span>✦</span> RATE AVANTAJOASE <span>✦</span> SCHIMB AUTO <span>✦</span> BICAZ NEAMȚ <span>✦</span> TRANSPORT INCLUS <span>✦</span>
+    PARC AUTO BICAZ <span>✦</span> MAȘINI VERIFICATE <span>✦</span> RATE AVANTAJOASE <span>✦</span> SCHIMB AUTO <span>✦</span> BICAZ NEAMȚ <span>✦</span> TRANSPORT INCLUS <span>✦</span>
+  </div>
+</div>
+
+<!-- MAȘINI -->
+<section id="masini">
+  <div class="cars-header reveal">
+    <div>
+      <div class="section-label">Stoc disponibil</div>
+      <h2 class="section-title">MAȘINI ÎN PARC</h2>
+      <p class="section-sub">Toate vehiculele sunt verificate tehnic și au istoricul documentat.</p>
+    </div>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterCars('toate', this)">Toate</button>
+      <button class="filter-tab" onclick="filterCars('berlina', this)">Berline</button>
+      <button class="filter-tab" onclick="filterCars('suv', this)">SUV</button>
+      <button class="filter-tab" onclick="filterCars('break', this)">Break</button>
+    </div>
+  </div>
+
+  <div class="cars-grid" id="carsGrid">
+
+    <div class="car-card reveal" data-cat="berlina">
+      <div class="car-img">
+        <img src="https://media.ed.edmunds-media.com/bmw/3-series/2025/oem/2025_bmw_3-series_sedan_330i_fq_oem_1_1280x855.jpg" alt="BMW Seria 3">
+        <span class="car-badge nou">NOU SOSIT</span>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">BMW</div>
+        <div class="car-name">Seria 3 320d</div>
+        <div class="car-specs">
+          <div class="spec"><span class="spec-icon">📅</span> 2021</div>
+          <div class="spec"><span class="spec-icon">⛽</span> Diesel</div>
+          <div class="spec"><span class="spec-icon">🔄</span> 85.000 km</div>
+          <div class="spec"><span class="spec-icon">⚙️</span> Automat</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            19.500 €
+            <small>sau de la 320€/lună</small>
+          </div>
+          <button class="car-btn" onclick="contactMasina('BMW Seria 3 320d')">Detalii</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="suv">
+      <div class="car-img">
+        <img src="https://plus-auto.fra1.cdn.digitaloceanspaces.com/vehicles_images/268433/268433-5619912.webp" alt="Volkswagen Tiguan">
+        <span class="car-badge">POPULAR</span>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Volkswagen</div>
+        <div class="car-name">Tiguan 2.0 TDI</div>
+        <div class="car-specs">
+          <div class="spec"><span class="spec-icon">📅</span> 2020</div>
+          <div class="spec"><span class="spec-icon">⛽</span> Diesel</div>
+          <div class="spec"><span class="spec-icon">🔄</span> 102.000 km</div>
+          <div class="spec"><span class="spec-icon">⚙️</span> Automat</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            17.900 €
+            <small>sau de la 295€/lună</small>
+          </div>
+          <button class="car-btn" onclick="contactMasina('VW Tiguan 2.0 TDI')">Detalii</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="break">
+      <div class="car-img">
+        <img src="https://plus-auto.fra1.cdn.digitaloceanspaces.com/vehicles_images/196810/196810-3951227.webp" alt="Skoda Octavia Combi">
+        <span class="car-badge nou">NOU SOSIT</span>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Škoda</div>
+        <div class="car-name">Octavia Combi</div>
+        <div class="car-specs">
+          <div class="spec"><span class="spec-icon">📅</span> 2022</div>
+          <div class="spec"><span class="spec-icon">⛽</span> Benzină</div>
+          <div class="spec"><span class="spec-icon">🔄</span> 54.000 km</div>
+          <div class="spec"><span class="spec-icon">⚙️</span> Manual</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            14.200 €
+            <small>sau de la 235€/lună</small>
+          </div>
+          <button class="car-btn" onclick="contactMasina('Škoda Octavia Combi')">Detalii</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="suv">
+      <div class="car-img">
+        <img src="https://images.autouncle.com/ro/car_images/88d3a7f1-4ec4-4bcf-847a-c0604a566981_2021-dacia-duster-prestige-114.jpg" alt="Dacia Duster">
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Dacia</div>
+        <div class="car-name">Duster 1.5 dCi 4x4</div>
+        <div class="car-specs">
+          <div class="spec"><span class="spec-icon">📅</span> 2021</div>
+          <div class="spec"><span class="spec-icon">⛽</span> Diesel</div>
+          <div class="spec"><span class="spec-icon">🔄</span> 67.000 km</div>
+          <div class="spec"><span class="spec-icon">⚙️</span> Manual</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            11.500 €
+            <small>sau de la 190€/lună</small>
+          </div>
+          <button class="car-btn" onclick="contactMasina('Dacia Duster 4x4')">Detalii</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="berlina">
+      <div class="car-img">
+        <img src="https://img.autrado.de/2377/138590_1920.jpg" alt="Mercedes C-Class">
+        <span class="car-badge rezervat">REZERVAT</span>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Mercedes-Benz</div>
+        <div class="car-name">C 200 AMG Line</div>
+        <div class="car-specs">
+          <div class="spec"><span class="spec-icon">📅</span> 2020</div>
+          <div class="spec"><span class="spec-icon">⛽</span> Benzină</div>
+          <div class="spec"><span class="spec-icon">🔄</span> 91.000 km</div>
+          <div class="spec"><span class="spec-icon">⚙️</span> Automat</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            22.800 €
+            <small>sau de la 375€/lună</small>
+          </div>
+          <button class="car-btn" onclick="contactMasina('Mercedes C 200')">Detalii</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="car-card reveal" data-cat="break">
+      <div class="car-img">
+        <img src="https://www.autocritica.ro/wp-content/uploads/2021/02/audi-a4-avant-top-2400x1600.jpg" alt="Audi A4 Avant">
+        <span class="car-badge nou">NOU SOSIT</span>
+      </div>
+      <div class="car-body">
+        <div class="car-brand">Audi</div>
+        <div class="car-name">A4 Avant 2.0 TDI</div>
+        <div class="car-specs">
+          <div class="spec"><span class="spec-icon">📅</span> 2021</div>
+          <div class="spec"><span class="spec-icon">⛽</span> Diesel</div>
+          <div class="spec"><span class="spec-icon">🔄</span> 78.000 km</div>
+          <div class="spec"><span class="spec-icon">⚙️</span> Automat</div>
+        </div>
+        <div class="car-footer">
+          <div class="car-price">
+            21.300 €
+            <small>sau de la 350€/lună</small>
+          </div>
+          <button class="car-btn" onclick="contactMasina('Audi A4 Avant')">Detalii</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DE CE NOI -->
+<section id="avantaje">
+  <div class="avantaje-grid">
+    <div>
+      <div class="section-label reveal">De ce să ne alegi</div>
+      <h2 class="section-title reveal">DE CE<br><span style="color:var(--red)">AUTOBICAZ</span></h2>
+      <p class="section-sub reveal">Suntem în inima Bicazului de peste 8 ani. Cunoaștem piața, respectăm clienții.</p>
+
+      <div class="avantaje-list">
+        <div class="avantaj reveal">
+          <div class="avantaj-icon">🔍</div>
+          <div>
+            <div class="avantaj-title">Mașini verificate tehnic</div>
+            <div class="avantaj-text">Fiecare vehicul trece prin inspecție completă înainte de expunere. Verificare ITP, historicul daunelor inclus.</div>
+          </div>
+        </div>
+
+        <div class="avantaj reveal">
+          <div class="avantaj-icon">💳</div>
+          <div>
+            <div class="avantaj-title">Rate și leasing rapid</div>
+            <div class="avantaj-text">Parteneriate cu principalele bănci. Aprobare în 24h, avans de la 0%. Soluții pentru orice situație financiară.</div>
+          </div>
+        </div>
+
+        <div class="avantaj reveal">
+          <div class="avantaj-icon">🔄</div>
+          <div>
+            <div class="avantaj-title">Schimb auto avantajos</div>
+            <div class="avantaj-text">Îți preluăm mașina veche la un preț corect și îl scădem direct din prețul noii achiziții.</div>
+          </div>
+        </div>
+
+        <div class="avantaj reveal">
+          <div class="avantaj-icon">🚚</div>
+          <div>
+            <div class="avantaj-title">Livrare în Neamț și împrejurimi</div>
+            <div class="avantaj-text">Livrăm mașina direct la tine acasă, gratuit în județul Neamț. Și în rest la tarif preferențial.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="avantaje-visual reveal">
+      <div class="big-number">★★★★★</div>
+      <div class="visual-card">
+        <div class="visual-card-title">Recenzii Clienți</div>
+        <div class="rating-row">
+          <span class="rating-label">Transparență și corectitudine</span>
+          <span class="rating-stars">★★★★★</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">Calitate vehicule</span>
+          <span class="rating-stars">★★★★★</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">Procesul de achiziție</span>
+          <span class="rating-stars">★★★★★</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">Service post-vânzare</span>
+          <span class="rating-stars">★★★★☆</span>
+        </div>
+        <div class="rating-row" style="margin-top:20px; border-top: 1px solid var(--border); padding-top: 20px;">
+          <span style="color:var(--white); font-weight:600; font-size:0.9rem;">📍 Bicaz, Neamț · Google Maps</span>
+          <span style="color:var(--gold); font-weight:700;">4.9 / 5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label reveal">Unde ne găsești</div>
+  <h2 class="section-title reveal">CONTACT &<br>LOCAȚIE</h2>
+
+  <div class="contact-grid">
+    <div class="contact-info reveal">
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-detail-label">Adresă</div>
+          <div class="contact-detail-value">Strada Principală, Nr. 12</div>
+          <div class="contact-detail-sub">Bicaz, Județul Neamț</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div>
+          <div class="contact-detail-label">Telefon</div>
+          <div class="contact-detail-value">+40 753 779 164</div>
+          <div class="contact-detail-sub">Lun – Sâm: 09:00 – 18:00</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-detail-label">Email</div>
+          <div class="contact-detail-value">maxuzu400@gmail.com</div>
+          <div class="contact-detail-sub">Răspundem în max. 2 ore</div>
+        </div>
+      </div>
+
+      <div class="contact-item">
+        <div class="contact-icon">⏰</div>
+        <div>
+          <div class="contact-detail-label">Program</div>
+          <div class="contact-detail-value">Luni – Sâmbătă: 09:00 – 18:00</div>
+          <div class="contact-detail-sub">Duminică: 10:00 – 14:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="map-placeholder reveal">
+      <div class="map-overlay-label">📍 Bicaz, Neamț</div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10857.70573!2d26.0773!3d46.9467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4737e8c9ab4f3aef%3A0x3e3bda3e3a0a3b1a!2sBicaz%2C+Neam%C8%9B!5e0!3m2!1sro!2sro!4v1700000000000"
+        allowfullscreen
+        loading="lazy"
+        title="AutoBicaz locatie"
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="form-section">
+  <div class="section-label reveal" style="display:block; text-align:center;">Trimite-ne un mesaj</div>
+  <h2 class="section-title reveal" style="text-align:center;">SOLICITĂ OFERTĂ</h2>
+  <p class="section-sub reveal" style="text-align:center; margin: 12px auto 0;">Completează formularul și te contactăm noi în cel mai scurt timp.</p>
+
+  <div class="form-wrap">
+    <div class="form-row reveal">
+      <div class="form-group">
+        <label class="form-label">Numele tău</label>
+        <input type="text" class="form-input" placeholder="Ion Popescu">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Telefon</label>
+        <input type="tel" class="form-input" placeholder="07XX XXX XXX">
+      </div>
+    </div>
+
+    <div class="form-group reveal">
+      <label class="form-label">Mașina de interes</label>
+      <input type="text" class="form-input" id="masinaInput" placeholder="ex: BMW, SUV, Diesel...">
+    </div>
+
+    <div class="form-group reveal">
+      <label class="form-label">Mesaj</label>
+      <textarea class="form-input" placeholder="Scrie-ne ce cauți sau orice altă întrebare..."></textarea>
+    </div>
+
+    <div class="reveal" style="text-align:center; margin-top:8px;">
+      <button class="btn-primary" style="margin: 0 auto;" onclick="submitForm()">
+        🚀 Trimite solicitarea
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="logo">AUTO<span>BICAZ</span></div>
+      <p>Parcul auto de încredere din Bicaz, Neamț. Mașini verificate, prețuri corecte, oameni de cuvânt.</p>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Navigare</div>
+      <ul class="footer-links-list">
+        <li><a href="#acasa">Acasă</a></li>
+        <li><a href="#masini">Mașini disponibile</a></li>
+        <li><a href="#avantaje">De ce noi</a></li>
+        <li><a href="#contact">Contact & Locație</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="footer-col-title">Contact rapid</div>
+      <ul class="footer-links-list">
+        <li><a href="tel:+40753779164">📞 +40 753 779 164</a></li>
+        <li><a href="mailto:maxuzu400@gmail.com">📧 maxuzu400@gmail.com</a></li>
+        <li><a href="#contact">📍 Bicaz, Neamț</a></li>
+        <li><a href="#">⏰ Lun–Sâm 09–18</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 AutoBicaz. Toate drepturile rezervate.</span>
+    <span>Site realizat de <a href="mailto:maxuzu400@gmail.com">Apopei Ionuț</a></span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div id="toast" style="
+  position:fixed; bottom:30px; left:50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #16a34a; color:white;
+  padding:14px 28px; border-radius:6px;
+  font-size:0.9rem; font-weight:600;
+  opacity:0; transition:0.4s; z-index:99999;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+">✅ Mesaj trimis! Te contactăm în curând.</div>
+
+<script>
+// Progress bar
+window.addEventListener('scroll', () => {
+  const s = document.documentElement.scrollTop;
+  const h = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  document.getElementById('progress').style.width = (s / h * 100) + '%';
+});
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      entry.target.style.transitionDelay = (i * 0.06) + 's';
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+revealEls.forEach(el => observer.observe(el));
+
+// Filter cars
+function filterCars(cat, btn) {
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+
+  document.querySelectorAll('.car-card').forEach(card => {
+    if (cat === 'toate' || card.dataset.cat === cat) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Contact masina
+function contactMasina(name) {
+  document.getElementById('masinaInput').value = name;
+  document.getElementById('contact') && document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+// Submit form
+function submitForm() {
+  const toast = document.getElementById('toast');
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(100px)';
+  }, 3500);
+}
+
+// Nav sticky style
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 50) {
+    nav.style.borderBottomColor = 'rgba(224,26,26,0.2)';
+  } else {
+    nav.style.borderBottomColor = 'var(--border)';
+  }
+});
+</script>
+
+</body>
+</html>
